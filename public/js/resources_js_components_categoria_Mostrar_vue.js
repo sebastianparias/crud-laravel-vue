@@ -62,16 +62,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "categorias",
   data: function data() {
@@ -110,10 +100,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       if (confirm("¿Desea eliminar este registro?")) {
-        this.axios["delete"]("/api/categoria/" + id).then(function (response) {
-          _this2.mostrarCategorias;
+        this.axios["delete"]('/api/categoria/' + id).then(function (response) {
+          _this2.mostrarCategorias();
         })["catch"](function (error) {
-          _this2.categoria = [];
+          console.log(error);
         });
       }
     }
@@ -237,34 +227,42 @@ var render = function () {
                 return _c("tr", { key: categoria.id }, [
                   _c("td", [_vm._v(_vm._s(categoria.id))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(categoria.nombre))]),
+                  _c("td", [_vm._v(_vm._s(categoria.Nombre))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(categoria.Descripcion))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(categoria.estado))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(categoria.descripcion))]),
                   _vm._v(" "),
                   _c(
                     "td",
                     [
-                      _c("router-link", {
-                        staticClass: "btn btn.info",
-                        attrs: {
-                          to: {
-                            name: "editarCategoria",
-                            params: { id: categoria.id },
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn btn-info",
+                          attrs: {
+                            to: {
+                              name: "editarCategoria",
+                              params: { id: categoria.id },
+                            },
                           },
                         },
-                      }),
+                        [_vm._v("Editar\n                ")]
+                      ),
                       _vm._v(" "),
-                      _c("a", {
-                        staticClass: "btn btn-danger",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function ($event) {
-                            return _vm.borrarCategoria(categoria.id)
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.borrarCategoria(categoria.id)
+                            },
                           },
                         },
-                      }),
+                        [_vm._v("Borrar")]
+                      ),
                     ],
                     1
                   ),
@@ -289,9 +287,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Descripción")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Estado")]),
         _vm._v(" "),
         _c("th", [_vm._v("Acciones")]),
       ]),

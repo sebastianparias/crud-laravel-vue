@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <div class="card-header"><h4>Crear categoría</h4></div>
+          <div class="card-header">
+            <h4>Crear categoría</h4>
+          </div>
         </div>
         <div class="card-body">
           <form @submit.prevent="actualizar">
@@ -11,33 +13,23 @@
               <div class="col-12 mb-2">
                 <div class="form-group">
                   <label>Nombre</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="categoria.nombre"
-                  />
+                  <input type="text" class="form-control" v-model="categoria.Nombre" />
+                </div>
+              </div>
+
+
+
+              <div class="col-12 mb-2">
+                <div class="form-group">
+                  <label>Descripción</label>
+                  <input type="text" class="form-control" v-model="categoria.Descripcion" />
                 </div>
               </div>
 
               <div class="col-12 mb-2">
                 <div class="form-group">
                   <label>Estado</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="categoria.estado"
-                  />
-                </div>
-              </div>
-
-              <div class="col-12 mb-2">
-                <div class="form-group">
-                  <label>Descripción</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="categoria.descripcion"
-                  />
+                  <input type="text" class="form-control" v-model="categoria.estado" />
                 </div>
               </div>
 
@@ -59,38 +51,38 @@ export default {
   data() {
     return {
       categoria: {
-        nombre: "",
+        Nombre: "",
+        Descripcion: "",
         estado: "",
-        descripcion: "",
       },
     };
   },
-  mounted(){
+  mounted() {
     this.mostrarCategoria()
   },
-  methods:{
-    async mostrarCategoria(){
-        this.axios.get('/api/categoria/${this.$route.params.id}')
-        .then(response=>{
-            const {nombre, estado, descripcion} = response.data
-            this.categoria.nombre = nombre,
-            this.categoria.estado = estado,
-            this.categoria.descripcion = descripcion,
+  methods: {
+    async mostrarCategoria() {
+      this.axios.get('/api/categoria/${this.$route.params.id}')
+        .then(response => {
+          const { Nombre, Descripcion, estado } = response.data
+          this.categoria.Nombre = Nombre,
+            this.categoria.Descripcion = Descripcion,
+            this.categoria.estado = estado
         })
-        .catch(error=>{
-            console.log(error)
+        .catch(error => {
+          console.log(error)
         })
 
     },
-    async actualizar(){
-        this.axios.put('/api/categoria/${this.$route.params.id}', this.categoria)
-        .then(response=>{
-            this.$route.push({
-                name:"mostrarCategorias"
-            })
+    async actualizar() {
+      this.axios.put('/api/categoria/${this.$route.params.id}', this.categoria)
+        .then(response => {
+          this.$route.push({
+            name: "mostrarCategorias"
+          })
         })
-        .catch(error=>{
-            console.log(error)
+        .catch(error => {
+          console.log(error)
         })
 
     }

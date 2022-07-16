@@ -65,22 +65,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "crear-categoria",
   data: function data() {
     return {
       categoria: {
-        nombre: "",
-        estado: "",
-        descripcion: ""
+        Nombre: "",
+        Descripcion: "",
+        estado: ""
       }
     };
   },
@@ -227,19 +219,51 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.categoria.nombre,
-                          expression: "categoria.nombre",
+                          value: _vm.categoria.Nombre,
+                          expression: "categoria.Nombre",
                         },
                       ],
                       staticClass: "form-control",
                       attrs: { type: "text" },
-                      domProps: { value: _vm.categoria.nombre },
+                      domProps: { value: _vm.categoria.Nombre },
                       on: {
                         input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.categoria, "nombre", $event.target.value)
+                          _vm.$set(_vm.categoria, "Nombre", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Descripción")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.categoria.Descripcion,
+                          expression: "categoria.Descripcion",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.categoria.Descripcion },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.categoria,
+                            "Descripcion",
+                            $event.target.value
+                          )
                         },
                       },
                     }),
@@ -268,38 +292,6 @@ var render = function () {
                             return
                           }
                           _vm.$set(_vm.categoria, "estado", $event.target.value)
-                        },
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Descripción")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.categoria.descripcion,
-                          expression: "categoria.descripcion",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.categoria.descripcion },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.categoria,
-                            "descripcion",
-                            $event.target.value
-                          )
                         },
                       },
                     }),
