@@ -56,7 +56,7 @@ export default {
   methods: {
     async mostrarCategorias() {
       await this.axios
-        .get("/api/categoria")
+        .get("/api/categorias")
         .then((response) => {
           this.categorias = response.data;
         })
@@ -67,7 +67,7 @@ export default {
     borrarCategoria(id) {
       if (confirm("¿Desea eliminar este registro?")) {
         this.axios
-          .delete('/api/categoria/'+id)
+          .delete('/api/categorias/'+id)
           .then((response) => {
             this.mostrarCategorias();
           })

@@ -13,23 +13,33 @@
               <div class="col-12 mb-2">
                 <div class="form-group">
                   <label>Nombre</label>
-                  <input type="text" class="form-control" v-model="categoria.Nombre" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="categoria.Nombre"
+                  />
                 </div>
               </div>
-
-
 
               <div class="col-12 mb-2">
                 <div class="form-group">
                   <label>Descripción</label>
-                  <input type="text" class="form-control" v-model="categoria.Descripcion" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="categoria.Descripcion"
+                  />
                 </div>
               </div>
 
               <div class="col-12 mb-2">
                 <div class="form-group">
                   <label>Estado</label>
-                  <input type="text" class="form-control" v-model="categoria.estado" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="categoria.estado"
+                  />
                 </div>
               </div>
 
@@ -58,34 +68,34 @@ export default {
     };
   },
   mounted() {
-    this.mostrarCategoria()
+    this.mostrarCategoria();
   },
   methods: {
     async mostrarCategoria() {
-      this.axios.get('/api/categoria/${this.$route.params.id}')
-        .then(response => {
-          const { Nombre, Descripcion, estado } = response.data
-          this.categoria.Nombre = Nombre,
-            this.categoria.Descripcion = Descripcion,
-            this.categoria.estado = estado
+      await this.axios
+        .get(`/api/categorias/${this.$route.params.id}`)
+        .then((response) => {
+          const { Nombre, Descripcion, estado } = response.data;
+          this.categoria.Nombre = Nombre;
+          this.categoria.Descripcion = Descripcion;
+          this.categoria.estado = estado;
         })
-        .catch(error => {
-          console.log(error)
-        })
-
+        .catch((error) => {
+          console.log(error);
+        });
     },
     async actualizar() {
-      this.axios.put('/api/categoria/${this.$route.params.id}', this.categoria)
-        .then(response => {
-          this.$route.push({
-            name: "mostrarCategorias"
-          })
+      await this.axios
+        .put(`/api/categorias/${this.$route.params.id}`, this.categoria)
+        .then((response) => {
+          this.$router.push({
+            name: "mostrarCategorias",
+          });
         })
-        .catch(error => {
-          console.log(error)
-        })
-
-    }
-  }
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
 };
 </script>

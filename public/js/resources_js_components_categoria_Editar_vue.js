@@ -66,6 +66,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "editar-categoria",
   data: function data() {
@@ -89,17 +99,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this.axios.get('/api/categoria/${this.$route.params.id}').then(function (response) {
+                _context.next = 2;
+                return _this.axios.get("/api/categorias/".concat(_this.$route.params.id)).then(function (response) {
                   var _response$data = response.data,
                       Nombre = _response$data.Nombre,
                       Descripcion = _response$data.Descripcion,
                       estado = _response$data.estado;
-                  _this.categoria.Nombre = Nombre, _this.categoria.Descripcion = Descripcion, _this.categoria.estado = estado;
+                  _this.categoria.Nombre = Nombre;
+                  _this.categoria.Descripcion = Descripcion;
+                  _this.categoria.estado = estado;
                 })["catch"](function (error) {
                   console.log(error);
                 });
 
-              case 1:
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -115,15 +128,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _this2.axios.put('/api/categoria/${this.$route.params.id}', _this2.categoria).then(function (response) {
-                  _this2.$route.push({
+                _context2.next = 2;
+                return _this2.axios.put("/api/categorias/".concat(_this2.$route.params.id), _this2.categoria).then(function (response) {
+                  _this2.$router.push({
                     name: "mostrarCategorias"
                   });
                 })["catch"](function (error) {
                   console.log(error);
                 });
 
-              case 1:
+              case 2:
               case "end":
                 return _context2.stop();
             }

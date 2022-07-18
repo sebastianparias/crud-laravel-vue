@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('categoria', App\Http\Controllers\CategoriaController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
+Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->only(['index', 'store', 'update', 'show', 'destroy']);

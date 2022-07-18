@@ -82,7 +82,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.get("/api/categoria").then(function (response) {
+                return _this.axios.get("/api/categorias").then(function (response) {
                   _this.categorias = response.data;
                 })["catch"](function (error) {
                   _this.categoria = [];
@@ -100,7 +100,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       if (confirm("¿Desea eliminar este registro?")) {
-        this.axios["delete"]('/api/categoria/' + id).then(function (response) {
+        this.axios["delete"]('/api/categorias/' + id).then(function (response) {
           _this2.mostrarCategorias();
         })["catch"](function (error) {
           console.log(error);

@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     async crear() {
-      await this.axios.post('/api/categoria', this.categoria)
+      await this.axios.post('/api/categorias', this.categoria)
         .then(response => {
           this.$router.push({ name: "mostrarCategorias" })
         }) //methodo http post
