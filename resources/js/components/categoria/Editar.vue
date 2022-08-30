@@ -4,7 +4,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h4>Crear categoría</h4>
+            <h4>Editar categoría</h4>
           </div>
         </div>
         <div class="card-body">
